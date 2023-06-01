@@ -7,6 +7,8 @@ import "./login.css"
 export default function Login(){
 	useEffect(() => {
 		const dialog = document.getElementById("login-form");
+
+		// Close modal if clicked outside of modal
 		dialog.addEventListener("click", e => {
 			const dialogDimensions = dialog.getBoundingClientRect()
 			if (
@@ -15,7 +17,15 @@ export default function Login(){
 				e.clientY < dialogDimensions.top ||
 				e.clientY > dialogDimensions.bottom
 			) {
-				console.log("click outside");
+				// console.log("click outside");
+				dialog.close();
+			}
+		})
+
+		// Close modal if escape key is pressed
+		dialog.addEventListener("keydown", e => {
+			if (e.key === "Escape") {
+				// console.log("escape");
 				dialog.close();
 			}
 		})
