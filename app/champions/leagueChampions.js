@@ -1,4 +1,5 @@
 import { use } from "react";
+import Link from "next/link";
 
 async function getChampions() {
     const champions = await fetch("https://ddragon.leagueoflegends.com/cdn/13.10.1/data/en_US/champion.json");
@@ -9,12 +10,20 @@ async function getChampions() {
 export default function LeagueChampions() {
     let champions = use(getChampions());
 
+    const handleClick = (e) => {
+        console.log(e.target.value);
+    }
+
     return (
         <div>
-            <h1>Champions</h1>
             <ul>
                 { Object.keys(champions).map((champion) => (
-                        <li key={champion}>{champion}</li>
+                        <li key={champions[champion]["id"]}>{
+                            <Link href={`/champions/${champions[champion]["id"]}`}>
+                                {champions[champion]["name"]}
+                            </Link>
+                            
+                        }</li>
                 ))}
             </ul>
         </div>

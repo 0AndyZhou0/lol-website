@@ -1,4 +1,4 @@
-import LeagueChampions from "./components/leagueChampions";
+import LeagueChampions from "./champions/leagueChampions";
 
 export default function Home() {
 	return (
@@ -6,7 +6,6 @@ export default function Home() {
 			<h1>Home</h1>
 			<p >This is the home page</p>
 			<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Secret Link</a>
-			<LeagueChampions />
 		</div>
 	);
 }
