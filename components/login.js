@@ -14,7 +14,7 @@ export default function Login(){
         <div className="login">
             <button type="open" className="open-login-form" onClick={openForm}>Login</button>
 
-            <div className="login-form" id="login-form">
+            <div className="login-form" id="login-form" style={{display: "none"}}>
                 <form>
                     <h1>Login</h1>
                     <label for="email">Email</label>
