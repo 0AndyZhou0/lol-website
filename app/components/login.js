@@ -1,19 +1,19 @@
+'use client';
 import Navbar from "./navbar";
+import { useState } from "react";
 
 export default function Login(){
-	// const openForm = () => {
-	//     document.getElementById("login-form").style.display = "block";
-	// }
-	
-	// const closeForm = () => {
-	//     document.getElementById("login-form").style.display = "none";
-	// }
+	const [isOpen, setIsOpen] = useState(true);
+
+	function toggleForm() {
+		setIsOpen(!isOpen);
+	}
 
 	return (
 		<div className="login">
-			{/* <button type="open" className="open-login-form" onClick={openForm}>Login</button> */}
+			<button type="open" className="open-login-form" onClick={toggleForm}>Login</button>
 
-			<div className="login-form" id="login-form" style={{display: "none"}}>
+			{ isOpen && <div className="login-form" id="login-form">
 				<form>
 					<h1>Login</h1>
 					<label for="email">Email</label>
@@ -24,8 +24,8 @@ export default function Login(){
 
 					<button type="submit" value="LOGIN" className="login-button">Submit</button>
 				</form>
-				{/* <button type="close" className="close-form" onClick={closeForm}>Close</button> */}
-			</div>
+				<button type="close" className="close-form" onClick={toggleForm}>Close</button>
+			</div> }
 		</div>
 	)
 }

@@ -10,7 +10,7 @@ export default function Navbar() {
 			<Link href="/" style={{padding: "0 5px 0 0"}}>Home</Link>
 			<Link href="/champions" style={{padding: "0 5px 0 0"}}>Champions</Link>
 			<Link href="/about" style={{padding: "0 5px 0 0"}}>About</Link>
-			{/* <Login /> */}
+			<Login />
 		</nav>
 	);
 }

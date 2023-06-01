@@ -7,7 +7,7 @@ async function getChampionBlurb(id) {
     return json.data[id]["blurb"];
 }
 
-export default function Page({ params}) {
+export default function Page({ params }) {
     let id = params.id;
     let champion_blurb = use(getChampionBlurb(id));
 
