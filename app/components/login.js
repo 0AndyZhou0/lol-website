@@ -43,18 +43,18 @@ export default function Login(){
 		<div className="login">
 			<button type="open" className="open-login-form" onClick={openLogin}>Login</button>
 			<div className="login-overlay">
-				<dialog id="login-form">
+				<dialog id="login-form" className="login-form">
 					<form method="dialog">
 						<h1>Login</h1>
 						<label for="email">Email </label>
-						<input type="email" placeholder="Enter Email" className="login-form" name="email" required />
+						<input type="email" placeholder="Enter Email" className="login-form email" name="email" required />
 						<br />
 						<label for="password">Password </label>
-						<input type="password" placeholder="Enter Password" className="login-form" name="password" required />
-
+						<input type="password" placeholder="Enter Password" className="login-form password" name="password" required />
+						<br />
 						<button type="submit" value="LOGIN" className="login-button">Submit</button>
+						<button className="close-login-form" onClick={closeLogin}>Close</button>
 					</form>
-					<button type="close" className="close-form" onClick={closeLogin}>Close</button>
 				</dialog>
 			</div>
 		</div>
