@@ -3,9 +3,6 @@
     box-sizing: border-box;
     justify-content: space-between;
     padding: 20px;
-    background-color: #fff;
-    color: #fff;
-    border-bottom: 1px solid #eaeaea;
 }
 
 .navbar ul {
