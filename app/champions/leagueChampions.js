@@ -1,4 +1,3 @@
-import { use } from "react";
 import Link from "next/link";
 
 async function getChampions() {
@@ -7,8 +6,8 @@ async function getChampions() {
     return json.data;
 }
 
-export default function LeagueChampions() {
-    let champions = use(getChampions());
+export default async function LeagueChampions() {
+    let champions = await getChampions();
 
     const handleClick = (e) => {
         console.log(e.target.value);
