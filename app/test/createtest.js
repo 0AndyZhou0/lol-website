@@ -31,7 +31,6 @@ export default function CreateTest() {
 
     return (
         <div>
-            <h1>Page</h1>
             <form> 
                 <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
                 <input type="text" placeholder="Text" value={text} onChange={(e) => setText(e.target.value)} />
