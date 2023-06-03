@@ -1,16 +1,16 @@
 "use client";
 import { useMemo, createContext, useState, useEffect, useContext, useCallback } from "react";
 import PocketBase from 'pocketbase';
-import { usePocket } from './pocketcontext';
 
 const BASE_URL = 'http://127.0.0.1:8090';
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-    const { pb } = usePocket()
+    const pb = useMemo(() => new PocketBase(BASE_URL), []);
 
     const [user, setUser] = useState(pb.authStore.model);
     const [token, setToken] = useState(pb.authStore.token);
+    const [pbdb, setPbdb] = useState(pb);
 
     useEffect(() => {
         return pb.authStore.onChange((token, model) => {
@@ -37,7 +37,7 @@ export const UserProvider = ({ children }) => {
     }, []);
 
     return (
-        <UserContext.Provider value={{ user, token, signup, login, logout }}>
+        <UserContext.Provider value={{ user, token, pbdb, signup, login, logout }}>
             {children}
         </UserContext.Provider>
     );
