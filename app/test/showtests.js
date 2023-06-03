@@ -7,7 +7,7 @@ export default async function Page() {
     const getTests = async () => {
         const res = await fetch("http://127.0.0.1:8090/api/collections/test/records");
         const tests = await res.json();
-        console.log(tests.items);
+        // console.log(tests.items);
         return tests.items;
     }
 

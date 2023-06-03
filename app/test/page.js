@@ -1,5 +1,4 @@
 import CreateTest from "./createtest";
-import RemoveTest from "./removetest";
 import ShowTests from "./showtests";
 
 export default async function Page() {
