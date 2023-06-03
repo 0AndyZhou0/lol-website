@@ -2,6 +2,7 @@ import catbot from '@/public/assets/catbot.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import Login from './login';
+import CreateUser from './createuser';
 
 import "./navbar.css";
 
@@ -24,6 +25,7 @@ export default function Navbar() {
 				</div>
 				
 				<li><Login /></li>
+				<li><CreateUser /></li>
 			</ul>
 			
 		</nav>
