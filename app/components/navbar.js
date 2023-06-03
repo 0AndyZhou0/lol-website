@@ -13,7 +13,11 @@ export default function Navbar() {
 	const { user } = useUser();
 	const [email, setEmail] = useState("");
 
-	useEffect(() => setEmail(user.email), []);
+	useEffect(() => {
+		if (user) {
+			setEmail(user.email);
+		}
+	}, []);
 
 	return (
 		<nav className="navbar">
