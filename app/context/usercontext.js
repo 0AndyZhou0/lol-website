@@ -10,7 +10,6 @@ export const UserProvider = ({ children }) => {
 
     const [user, setUser] = useState(pb.authStore.model);
     const [token, setToken] = useState(pb.authStore.token);
-    const [pbdb, setPbdb] = useState(pb);
 
     useEffect(() => {
         return pb.authStore.onChange((token, model) => {
@@ -37,7 +36,7 @@ export const UserProvider = ({ children }) => {
     }, []);
 
     return (
-        <UserContext.Provider value={{ user, token, pbdb, signup, login, logout }}>
+        <UserContext.Provider value={{ user, token, signup, login, logout }}>
             {children}
         </UserContext.Provider>
     );
