@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from "react";
+import Cookie from "js-cookie";
 
 import "./login.css"
 
@@ -30,14 +31,12 @@ export default function Login(){
 		})
 	}, []);
 
-	function closeLogin() {
-		document.getElementById("login-form").close();
-	}
 
-	function openLogin() {
-		document.getElementById("login-form").showModal();
-	}
+	//Open and Close Login Modal
+	const openLogin = () => document.getElementById("login-form").showModal();
+	const closeLogin = () => document.getElementById("login-form").close();
 
+	// Login Verification
 	const login = async () => {
 		console.log(document.getElementsByClassName("login-form email")[0].value);
 		console.log(document.getElementsByClassName("login-form password")[0].value);
@@ -62,6 +61,7 @@ export default function Login(){
 		else {
 			console.log(json.token);
 			alert("Login Successful");
+			Cookie.set("token", json.token);
 		}
 	}
 
