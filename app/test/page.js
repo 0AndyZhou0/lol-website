@@ -5,7 +5,7 @@ import PocketBase from 'pocketbase';
 async function getTests() {
     const pb = new PocketBase('http://127.0.0.1:8090');
     const tests = await pb.collection('test').getFullList({});
-    console.log(tests);
+    // console.log(tests);
     return tests;
 }
 

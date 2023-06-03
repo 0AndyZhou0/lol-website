@@ -1,12 +1,21 @@
+"use client";
 import catbot from '@/public/assets/catbot.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import Login from './login';
 import CreateUser from './createuser';
+import UserInfo from './userinfo';
+import { useUser } from '../context/usercontext';
+import { useState, useEffect } from 'react';
 
 import "./navbar.css";
 
 export default function Navbar() {
+	const { user } = useUser();
+	const [email, setEmail] = useState("");
+
+	useEffect(() => setEmail(user.email), []);
+
 	return (
 		<nav className="navbar">
 			{/* Navbar Logo */}
@@ -23,9 +32,11 @@ export default function Navbar() {
 					<li><Link className="navbar-link" href="/about">About</Link></li>
 					<li><Link className="navbar-link" href="/test">Test</Link></li>
 				</div>
-				
-				<li><Login /></li>
-				<li><CreateUser /></li>
+			
+				{/* <li><UserInfo /></li> */}
+				{email && <li>{email}</li>}
+				{!email && <li><Login /></li>}
+				{!email && <li><CreateUser /></li>}
 			</ul>
 			
 		</nav>
