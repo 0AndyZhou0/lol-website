@@ -1,10 +1,12 @@
 import CreateTest from "./createtest";
 import RemoveTest from "./removetest";
+import PocketBase from 'pocketbase';
 
 async function getTests() {
-    const res = await fetch("http://127.0.0.1:8090/api/collections/test/records", {cache: "no-store"});
-    const tests = await res.json();
-    return tests.items;
+    const pb = new PocketBase('http://127.0.0.1:8090');
+    const tests = await pb.collection('test').getFullList({});
+    console.log(tests);
+    return tests;
 }
 
 export default async function Page() {
