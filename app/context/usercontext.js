@@ -1,12 +1,13 @@
 "use client";
 import { useMemo, createContext, useState, useEffect, useContext, useCallback } from "react";
 import PocketBase from 'pocketbase';
+import { usePocket } from './pocketcontext';
 
 const BASE_URL = 'http://127.0.0.1:8090';
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-    const pb = useMemo(() => new PocketBase(BASE_URL), []);
+    const { pb } = usePocket()
 
     const [user, setUser] = useState(pb.authStore.model);
     const [token, setToken] = useState(pb.authStore.token);
