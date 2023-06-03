@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react';
 import "./navbar.css";
 
 export default function Navbar() {
-	const { user } = useUser();
+	const { user, logout } = useUser();
 	const [email, setEmail] = useState("");
 
 	useEffect(() => {
@@ -18,6 +18,11 @@ export default function Navbar() {
 			setEmail(user.email);
 		}
 	}, []);
+
+	const logoutUser = async () => {
+		await logout();
+		setEmail("");
+	}
 
 	return (
 		<nav className="navbar">
@@ -37,6 +42,7 @@ export default function Navbar() {
 				</div>
 			
 				{email && <li>{email}</li>}
+				{email && <li><button className="navbar-link" onClick={logoutUser}>Logout</button></li>}
 				{!email && <li><Login /></li>}
 				{!email && <li><CreateUser /></li>}
 			</ul>
