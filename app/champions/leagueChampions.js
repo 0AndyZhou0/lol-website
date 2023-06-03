@@ -9,10 +9,6 @@ async function getChampions() {
 export default async function LeagueChampions() {
     let champions = await getChampions();
 
-    const handleClick = (e) => {
-        console.log(e.target.value);
-    }
-
     return (
         <div>
             <ul>
