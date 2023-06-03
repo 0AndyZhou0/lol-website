@@ -44,10 +44,6 @@ export default function Login(){
 			document.getElementsByClassName("login-form email")[0].value,
 			document.getElementsByClassName("login-form password")[0].value,
 		);
-
-		// if (user) {
-		// 	console.log(user);
-		// }
 	}
 
 	return (

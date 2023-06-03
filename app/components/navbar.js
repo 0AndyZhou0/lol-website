@@ -17,7 +17,7 @@ export default function Navbar() {
 		if (user) {
 			setEmail(user.email);
 		}
-	}, []);
+	}, [user]);
 
 	const logoutUser = async () => {
 		await logout();
