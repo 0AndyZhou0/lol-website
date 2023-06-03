@@ -1,5 +1,4 @@
 'use client';
-import Navbar from "./navbar";
 import { useState, useEffect } from "react";
 
 import "./login.css"
@@ -39,6 +38,33 @@ export default function Login(){
 		document.getElementById("login-form").showModal();
 	}
 
+	const login = async () => {
+		console.log(document.getElementsByClassName("login-form email")[0].value);
+		console.log(document.getElementsByClassName("login-form password")[0].value);
+
+		const res = await fetch("http://127.0.0.1:8090/api/collections/users/auth-with-password", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+			body: JSON.stringify({
+				identity: document.getElementsByClassName("login-form email")[0].value,
+				password: document.getElementsByClassName("login-form password")[0].value,
+			})
+        });
+
+		const json = await res.json();
+		console.log(json);
+
+		if (json.code === 400) {
+			alert(json.message);
+		}
+		else {
+			console.log(json.token);
+			alert("Login Successful");
+		}
+	}
+
 	return (
 		<div className="login">
 			<button type="open" className="open-login-form" onClick={openLogin}>Login</button>
@@ -52,7 +78,7 @@ export default function Login(){
 						<label for="password">Password </label>
 						<input type="password" placeholder="Enter Password" className="login-form password" name="password" required />
 						<br />
-						<button type="submit" value="LOGIN" className="login-button">Submit</button>
+						<button type="submit" value="LOGIN" className="login-button" onClick={login}>Submit</button>
 						<button className="close-login-form" onClick={closeLogin}>Close</button>
 					</form>
 				</dialog>
