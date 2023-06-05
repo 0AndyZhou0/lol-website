@@ -1,10 +1,10 @@
 import { use } from "react";
 
 async function getChampionBlurb(id) {
-    const champions = await fetch("https://ddragon.leagueoflegends.com/cdn/13.10.1/data/en_US/champion.json");
+    const champions = await fetch("https://ddragon.leagueoflegends.com/cdn/13.10.1/data/en_US/champion/" + id + ".json");
     const json = await champions.json();
-    // console.log(json.data[id]);
-    return json.data[id]["blurb"];
+    // console.log(json.data);
+    return json.data[id].blurb;
 }
 
 export default function Page({ params }) {
