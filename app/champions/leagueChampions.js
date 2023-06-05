@@ -21,6 +21,7 @@ export default async function LeagueChampions() {
                 { Object.keys(champions).map((champion) => (
                     <li key={champions[champion]["id"]}>{
                         <Link href={`/champions/${champions[champion]["id"]}`}>
+                            <img src={"https://ddragon.leagueoflegends.com/cdn/13.11.1/img/champion/" + champion + ".png"} />
                             {champions[champion]["name"]}
                         </Link>
                     }</li>
