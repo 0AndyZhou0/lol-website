@@ -3,7 +3,7 @@ import { use } from "react";
 async function getChampionBlurb(id) {
     const champions = await fetch("https://ddragon.leagueoflegends.com/cdn/13.10.1/data/en_US/champion.json");
     const json = await champions.json();
-    console.log(json.data[id]);
+    // console.log(json.data[id]);
     return json.data[id]["blurb"];
 }
 
