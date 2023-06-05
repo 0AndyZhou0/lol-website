@@ -3,9 +3,9 @@ import "./leagueChampions.css"
 
 async function getChampions() {
     let version = "13.11.1"
-    const versions = await fetch("https://ddragon.leagueoflegends.com/api/versions.json");
-    const versionslist = await versions.json();
-    version = versionslist[0];
+    const naversions = await fetch("https://ddragon.leagueoflegends.com/realms/na.json");
+    const naversionslist = await naversions.json();
+    // console.log(naversionslist)
     const champions = await fetch("https://ddragon.leagueoflegends.com/cdn/" + version + "/data/en_US/champion.json");
     const json = await champions.json();
     return json.data;
