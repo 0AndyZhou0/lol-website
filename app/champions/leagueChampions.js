@@ -5,7 +5,8 @@ async function getChampions() {
     let version = "13.11.1"
     const naversions = await fetch("https://ddragon.leagueoflegends.com/realms/na.json");
     const naversionslist = await naversions.json();
-    // console.log(naversionslist)
+    // console.log(naversionslist.v)
+    version = naversionslist.v;
     const champions = await fetch("https://ddragon.leagueoflegends.com/cdn/" + version + "/data/en_US/champion.json");
     const json = await champions.json();
     return json.data;
