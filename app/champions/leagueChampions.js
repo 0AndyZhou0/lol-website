@@ -1,4 +1,5 @@
 import Link from "next/link";
+import "./leagueChampions.css"
 
 async function getChampions() {
     const champions = await fetch("https://ddragon.leagueoflegends.com/cdn/13.10.1/data/en_US/champion.json");
@@ -11,13 +12,12 @@ export default async function LeagueChampions() {
 
     return (
         <div>
-            <ul>
+            <ul className="grid">
                 { Object.keys(champions).map((champion) => (
                         <li key={champions[champion]["id"]}>{
                             <Link href={`/champions/${champions[champion]["id"]}`}>
                                 {champions[champion]["name"]}
                             </Link>
-                            
                         }</li>
                 ))}
             </ul>
