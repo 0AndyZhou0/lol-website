@@ -12,13 +12,13 @@ async function getChampions() {
     return json.data;
 }
 
-export default async function LeagueChampions() {
+export default async function LeagueChampions({page}) {
     let champions = await getChampions();
 
     return (
         <div>
             <ul className="grid">
-                { Object.keys(champions).map((champion) => (
+                { Object.keys(champions).slice(page*20, (page+1)*20).map((champion) => (
                     <li key={champions[champion]["id"]}>{
                         <Link href={`/champions/${champions[champion]["id"]}`}>
                             <img src={"https://ddragon.leagueoflegends.com/cdn/13.11.1/img/champion/" + champion + ".png"} />

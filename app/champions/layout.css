@@ -1,0 +1,8 @@
+.page-controller {
+    display: flex;
+    justify-content: center;
+}
+
+.page-controller h3 {
+    padding: 0 1rem;
+}
