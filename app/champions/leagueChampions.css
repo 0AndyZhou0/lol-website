@@ -1,5 +1,5 @@
 :root {
-    --column_width: 200px;
+    --column_width: 150px;
 }
 
 .grid {
@@ -12,38 +12,38 @@
 
 @media (min-width: 400px) {
     .grid {
-        width: 300px;
+        max-width: 300px;
         grid-template-columns: repeat(2, 150px);
     }
 }
 
 @media (min-width: 700px) {
     .grid {
-        width: 600px;
+        max-width: 600px;
         grid-template-columns: repeat(4, 150px);
     }
 }
 
 @media (min-width: 900px) {
     .grid {
-        width: 750px;
+        max-width: 750px;
         grid-template-columns: repeat(5, 150px);
     }
 }
 
 @media (min-width: 1700px) and (max-width: 3000px) {
     .grid {
-        width: 1500px;
+        max-width: 1500px;
         grid-template-columns: repeat(10, 150px);
     }
 }
 
 .grid li {
     display: block;
-    background: #fff;
-    border: 1px solid #ccc;
+    background: #111111;
+    border: 1px solid #111111;;
     padding: 10px;
     text-decoration: none;
-    color: #000;
+    color: white;
     width: 150px;
 }
