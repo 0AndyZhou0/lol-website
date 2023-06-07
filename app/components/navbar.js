@@ -27,7 +27,7 @@ export default function Navbar() {
 	return (
 		<nav className="navbar">
 			{/* Navbar Logo */}
-			<Image className="navbar-logo" src={catbot} alt="CatBot" width={75} height={100} style={{padding: "0 5px 0 0"}}/>
+			<Image className="navbar-logo" src={catbot} alt="CatBot" width={75/2} height={50} style={{padding: "0 5px 0 0"}}/>
 
 			{/* Navbar Links Menu */}
 			<ul className="navbar-list">
@@ -39,12 +39,14 @@ export default function Navbar() {
 					<li><Link className="navbar-link" href="/champions">Champions</Link></li>
 					<li><Link className="navbar-link" href="/about">About</Link></li>
 					<li><Link className="navbar-link" href="/test">Test</Link></li>
+					<div className="navbar-login-stuff">
+						{email && <p>{email}</p>}
+						{email && <button className="navbar-link" onClick={logoutUser}>Logout</button>}
+						{!email && <Login />}
+						{!email && <CreateUser />}
+					</div>
 				</div>
 			
-				{email && <li>{email}</li>}
-				{email && <li><button className="navbar-link" onClick={logoutUser}>Logout</button></li>}
-				{!email && <li><Login /></li>}
-				{!email && <li><CreateUser /></li>}
 			</ul>
 			
 		</nav>

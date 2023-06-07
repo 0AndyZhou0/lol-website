@@ -1,20 +1,102 @@
 .navbar {
     display: flex;
     box-sizing: border-box;
+    align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 1rem 1rem;
+    background-color: #010101;
 }
 
-.navbar ul {
-    margin: 0;
-    padding: 0;
-}
-
-.navbar ul li {
+/* navbar including login stuff */
+.navbar-list {
+    display: flex;
     list-style: none;
-    text-decoration: none;
+    align-items: center;
+}
+
+/* navbar links */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 1em;
 }
 
 .navbar-link {
+    list-style: none;
     text-decoration: none;
+    padding: .5rem 1rem;
+}
+
+.navbar-link:hover{
+    background-color: #222222;
+    border-radius: .25rem;
+    /* transition: 0.3s ease; */
+}
+
+/* login stuff */
+.navbar-login-stuff {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-login-stuff * {
+    margin: 0 1rem;
+}
+
+/* Checkbox */
+.navbar-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    user-select: none;
+}
+
+/* mobile dropdown */
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        position: absolute;
+        background-color: #010101;
+        top: 82px;
+        right: 0;
+        left: 0;
+        text-align: center;
+        gap: 0;
+        /* border: white 1px solid; */
+    }
+
+    .navbar-link {
+        margin-top: 12px;
+        display: block;
+        text-align: center;
+    }
+
+    .navbar-toggle:checked ~ .navbar-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .navbar-login-stuff {
+        padding-bottom: 16px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navbar-login-stuff p {
+        padding-top: 12px;
+    }
+    
+   .navbar-login-stuff button {
+        padding: 12px;
+   }
 }
