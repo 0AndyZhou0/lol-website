@@ -19,7 +19,7 @@ export default function Layout({ children }) {
         }
     }
 
-	return (
+    return (
         <div>
             {children}
             <div className="page-controller">
@@ -29,5 +29,5 @@ export default function Layout({ children }) {
             </div>
             <LeagueChampions page={page} />
         </div>
-	)
+    )
 }
